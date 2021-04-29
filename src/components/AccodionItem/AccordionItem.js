@@ -55,9 +55,7 @@ const AccordionItemContainer = styled.li`
     margin-bottom: 0;
   }
 
-  a:focus-visible {
-    outline: 3px solid blue;
-  }
+ 
 `;
 
 const variants = mobile => ({
