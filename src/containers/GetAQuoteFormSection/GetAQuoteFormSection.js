@@ -67,7 +67,10 @@ const GetAQuoteFormSection = () => {
 
   const servicesTotalPrice = Object.values(selectedService)
     .flat(Infinity)
-    .reduce((acc, cur) => acc + cur.price, 0);
+    .reduce((acc, cur) => {
+      cur.price = !cur.price ? 0 : cur.price;
+      return acc + cur.price;
+    }, 0);
 
   return (
     <FullContainer>

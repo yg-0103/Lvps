@@ -12,7 +12,6 @@ const StyledIconContainer = styled(motion.div)`
 
   path {
     fill: ${({ color }) => color && colors[color]};
-    /* stroke: ${({ stroke }) => stroke}; */
   }
 `;
 
@@ -22,12 +21,15 @@ const StyledIconButton = styled.button`
   outline: none;
   background: transparent;
   cursor: pointer;
+
+  &:focus-visible {
+    outline 1px solid blue;
+  }
 `;
 
 const Icon = ({
   type,
   color,
-  // stroke,
   motionProps,
   button,
   link,
@@ -39,7 +41,6 @@ const Icon = ({
   ...restProps
 }) => {
   let Comp = null;
-
   if (link)
     Comp = (
       <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
@@ -70,8 +71,6 @@ Icon.propTypes = {
   type: string.isRequired,
   /** 아이콘 색 */
   color: string,
-  /** 아이콘 스트로크 */
-  // stroke: string,
   /** 아이콘 모션 객체 */
   motionProps: object,
   /** 아이콘 컨테이너 스타일 객체 */
@@ -87,7 +86,6 @@ Icon.propTypes = {
 Icon.defaultProps = {
   type: 'rightArrow',
   color: '',
-  // stroke: '',
   button: false,
   link: false
 };
