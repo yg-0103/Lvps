@@ -101,14 +101,11 @@ const GetAQuoteCheckbox = () => {
   const dispatch = useDispatch();
   const { desktop } = useViewSize();
 
-  const handleReset = (actionFunc, key) => {
-    return (reset, e) => {
-      dispatch(actionFunc());
-      dispatch(deleteService(key));
-      reset(e);
-    };
+  const handleReset = (actionFunc, key) => (reset, e) => {
+    dispatch(actionFunc());
+    dispatch(deleteService(key));
+    reset(e);
   };
-
   const handleVisible = () => {
     setIsVisible(true);
   };

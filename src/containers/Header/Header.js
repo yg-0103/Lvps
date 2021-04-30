@@ -44,7 +44,7 @@ const HeaderContainer = styled.header`
   }
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([0, 25])};
-
+    height: auto;
     svg {
       height: ${calcRem(60)};
     }
